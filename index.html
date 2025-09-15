@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Tetris</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <div class="mobile-stats">
+                <div class="mobile-stat">
+                    <span>SCORE</span>
+                    <div id="score">0</div>
+                </div>
+                <div class="mobile-stat">
+                    <span>LEVEL</span>
+                    <div id="level">1</div>
+                </div>
+                <div class="mobile-stat">
+                    <span>LINES</span>
+                    <div id="lines">0</div>
+                </div>
+            </div>
+            <div class="mobile-next">
+                <span>NEXT</span>
+                <div class="next-piece-canvas-container">
+                    <canvas id="next-piece-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="game-wrapper">
+            <div class="game-board">
+                <canvas id="game-canvas"></canvas>
+            </div>
+            
+            <!-- Desktop Controls -->
+            <div class="desktop-controls">
+                <div class="game-info">
+                    <div class="stats-container">
+                        <div class="stat">
+                            <h3>Score</h3>
+                            <div class="stat-value" id="desktop-score">0</div>
+                        </div>
+                        <div class="stat">
+                            <h3>Level</h3>
+                            <div class="stat-value" id="desktop-level">1</div>
+                        </div>
+                        <div class="stat">
+                            <h3>Lines</h3>
+                            <div class="stat-value" id="desktop-lines">0</div>
+                        </div>
+                    </div>
+                    <div class="next-piece">
+                        <h3>Next Piece</h3>
+                        <div class="next-piece-canvas-container">
+                            <canvas id="desktop-next-piece"></canvas>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button id="start-btn">Start Game</button>
+                        <button id="reset-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="mobile-controls">
+            <!-- Left side controls -->
+            <div class="left-controls">
+                <button id="mobile-rotate" class="mobile-btn" title="Rotate">↻</button>
+                <button id="mobile-swap" class="mobile-btn" title="Swap">⇄</button>
+            </div>
+            
+            <!-- Right side controls -->
+            <div class="right-controls">
+                <button id="mobile-up" class="mobile-btn" title="Rotate">↻</button>
+                <div class="dpad-row">
+                    <button id="mobile-left" class="mobile-btn" title="Left">←</button>
+                    <button id="mobile-right" class="mobile-btn" title="Right">→</button>
+                </div>
+                <button id="mobile-down" class="mobile-btn" title="Soft Drop">↓</button>
+            </div>
+            
+            <!-- Bottom center controls -->
+            <div class="center-controls">
+                <button id="mobile-start" class="mobile-btn">START</button>
+                <button id="mobile-hard-drop" class="mobile-btn">HARD DROP</button>
+            </div>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div class="game-over hidden" id="game-over">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="final-score">0</span></p>
+            <button id="play-again">Play Again</button>
+        </div>
+    </div>
+    <script src="js/game.js" type="module"></script>
+</body>
+</html>
