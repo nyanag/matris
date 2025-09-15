@@ -1,7 +1,15 @@
 // Game constants
 const COLS = 10;
 const ROWS = 20;
-const CELL_SIZE = 30;
+let CELL_SIZE = 30; // Changed to let to allow dynamic updates
+
+// Function to update CSS variable for cell size
+function updateCellSize() {
+    document.documentElement.style.setProperty('--cell-size', `${CELL_SIZE}px`);
+}
+
+// Initialize cell size
+updateCellSize();
 const EMPTY = 0;
 const BINARY_0 = 1;
 const BINARY_1 = 2;
@@ -122,7 +130,9 @@ function init() {
     nextCanvas = document.getElementById('next-piece-canvas');
     nextCtx = nextCanvas.getContext('2d');
     
-    // Set main game canvas dimensions
+    // Set main game canvas dimensions - ensure they're whole numbers
+    CELL_SIZE = Math.floor(CELL_SIZE);
+    updateCellSize(); // Update CSS variable
     canvas.width = COLS * CELL_SIZE;
     canvas.height = ROWS * CELL_SIZE;
     
